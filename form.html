@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <style>
+        /* Modal style */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+            padding-top: 60px;
+        }
+
+        /* Modal content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* Close button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Click to submit attendance</h2>
+
+    <!-- Trigger/Open The Modal -->
+    <a href="javascript:void(0);" id="myBtn">Click here to submit your attendance</a>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <!-- Your form goes here -->
+        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DWd000000vUpO" method="POST">
+            <h2>Attendance Form</h2>
+            <input type="hidden" name="oid" value="00DWd000000vUpO">
+            <input type="hidden" name="retURL" value="http://">
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input id="first_name" maxlength="40" name="first_name" size="20" type="text" required />
+            </div>
+
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input id="last_name" maxlength="80" name="last_name" size="20" type="text" required />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" maxlength="80" name="email" size="20" type="text" required />
+            </div>
+
+            <div class="form-group">
+                <label for="company">Company</label>
+                <input id="company" maxlength="40" name="company" size="20" type="text" required />
+            </div>
+
+            <div class="form-group">
+                <label for="00NWd000000YTPN">Date</label>
+                <input id="00NWd000000YTPN" name="00NWd000000YTPN" type="date" required />
+            </div>
+
+            <div class="form-group">
+                <label for="00NWd000000Vvej">Attendance Status</label>
+                <select id="00NWd000000Vvej" name="00NWd000000Vvej" title="Attendance Status" required>
+                    <option value="">--None--</option>
+                    <option value="Absent">Absent</option>
+                    <option value="Present">Present</option>
+                    <option value="Late">Late</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" name="submit" value="Submit Attendance">
+            </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

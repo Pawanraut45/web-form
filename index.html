@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Stream and People Count</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <div class="container">
+        
+        <div class="stream-container">
+            <img src="{{ url_for('video_feed') }}" width="640" height="480">
+        </div>
+        <div class="count-container">
+            <div class="count">Count of people: <span id="peopleCount">0</span></div>
+            <button id="startStreamBtn">Start Webcam Stream</button>
+            <button id="stopStreamBtn">Stop Webcam Stream</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
